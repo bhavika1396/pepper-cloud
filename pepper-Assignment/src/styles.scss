@@ -1,0 +1,64 @@
+// /* You can add global styles to this file, and also import other style files */
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+ .mat-tab-label {
+    height: 48px;
+    // padding: 0 !important;
+    cursor: pointer;
+    // color: #a9a9a9 !important;
+    // font-weight: 700;
+    box-sizing: border-box;
+    opacity: .6;
+    // min-width: 141px !important;
+    // min-width: 136px !important;
+    min-width: 102px !important;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+}
+@media(min-width:1768px){
+   .mat-tab-label{
+        height: 48px;
+        // padding: 0 !important;
+        cursor: pointer;
+        // color: #a9a9a9 !important;
+        // font-weight: 700;
+        box-sizing: border-box;
+        opacity: .6;
+        // min-width: 141px !important;
+        // min-width: 136px !important;
+        min-width: 161px !important;
+        text-align: center;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+        position: relative;
+    }
+}
+.mat-sort-header-container{
+    margin-bottom: 18px;
+}
+// .mat-ripple .mat-tab-label-active .mat-tab-label:active{
+//     border: 2px solid transparent;
+//     background: bisque;
+//     border-bottom: 2px solid orange;
+// }
+.mat-tab-body-content{
+    overflow-y: scroll !important;
+    overflow: unset !important;
+}
+.mat-tab-body.mat-tab-body-active{
+    overflow-y: inherit !important;
+  }
+  .mat-tab-label.mat-tab-label-active{
+    border: 2px   !important;
+    border-bottom: 2px solid orange !important;
+    background-color: bisque !important;
+  }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

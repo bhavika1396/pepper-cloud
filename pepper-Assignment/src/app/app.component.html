@@ -1,0 +1,466 @@
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col-12">
+      <div class="breadcrumb pt-4">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li role="presentation ">
+            <a class="nav-link active abc" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab"
+              aria-controls="home" aria-selected="true">Status 1</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" role="tab"
+              aria-controls="profile" aria-selected="false">New</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#contact" role="tab"
+              aria-controls="contact" aria-selected="false">Working</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="nurturing-tab" data-bs-toggle="tab" data-bs-target="#nurturing" role="tab"
+              aria-controls="nurturing" aria-selected="false">Nurturing</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="converted-tab" data-bs-toggle="tab" data-bs-target="#converted" role="tab"
+              aria-controls="converted" aria-selected="false">Converted</a>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"></div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"></div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"></div>
+          <div class="tab-pane fade" id="nurturing" role="tabpanel" aria-labelledby="profile-tab"></div>
+          <div class="tab-pane fade" id="converted" role="tabpanel" aria-labelledby="contact-tab"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="activity-tab" data-bs-toggle="tab" data-bs-target="#activity" role="tab"
+            aria-controls="activity" aria-selected="true">ACTIVITY</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" role="tab"
+            aria-controls="information" aria-selected="false">INFORMATION</a>
+        </li>
+
+      </ul>
+      
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="activity" role="tabpanel" aria-labelledby="activity-tab">
+          <div class="container-fluid p-0">
+            <div class="row mt-4">
+              <div class="col-12 col-md-8 mx-1" style="border: 1px solid #ddd;
+              border-radius: 3px;
+              min-height: 96px;
+              margin: 12px 0;
+              padding: 12px;
+              position: relative;">
+                <mat-tab-group mat-align-tabs="start">
+                  <mat-tab label="Log Calls">Content 1</mat-tab>
+                  <mat-tab label="Tasks" class="active">
+                    <div class="row mt-3 py-md-5" style="">
+                      <div class=" col-12 px-4 mx-3">
+
+                        <form #adduserform="ngForm" class="pe-4" name="form" (ngSubmit)="onadduser(adduserform.value)">
+                          <div class="row" >
+                            <div class="col-12 mb-3 ">
+                              <h6>New Task</h6>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <dl class=" form-group" [class.has-error]="Type.invalid && Type.touched "
+                                [class.has-success]="Type.valid">
+                                <div>
+                                  <label for="exampleInputName1" class="form-label text-black">Task Type<span
+                                      style="color: red;">*</span></label>
+                                </div>
+                                <dd class="input-group">
+                                  <input type="text" class="form-control" id="exampleInputName1" #Type="ngModel"
+                                    [ngClass]="{ 'is-invalid': adduserform.submitted && Type.invalid }"
+                                    aria-describedby="nameHelp" name="Type" [(ngModel)]="model.Type" required />
+                                  <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                  <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li>
+                                      <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                  </ul>
+                                </dd>
+                                <div class="help-block" *ngIf="Type.invalid  && Type.touched">Task Type is
+                                  required
+                                </div>
+                              </dl>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <dl class="form-group" [class.has-error]="Subject.invalid && Subject.touched "
+                                [class.has-success]="Subject.valid">
+                                <div>
+                                  <label for="exampleInputDescription1" class="form-label text-black">Subject</label>
+                                </div>
+                                <dd>
+                                  <input type="text" class="form-control" id="exampleInputDescription1" name="Subject"
+                                    [(ngModel)]="model.Subject" #Subject="ngModel"
+                                    [ngClass]="{ 'is-invalid': adduserform.submitted && Subject.invalid }" required />
+                                  <span class="help-block" *ngIf="Subject.invalid  && Subject.touched">Subject
+                                    is required
+                                  </span>
+                                </dd>
+                              </dl>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="col-12 mb-3">
+                                <dl class=" form-group" [class.has-error]="Assigned.invalid && Assigned.touched "
+                                  [class.has-success]="Assigned.valid">
+                                  <div>
+                                    <label for="exampleInputWebReference1" class="form-label text-black">Assigned
+                                      To<span style="color: red;">*</span></label>
+                                  </div>
+                                  <dd class="input-group">
+                                    <input type="text" class="form-control" id="exampleInputWebReference1"
+                                      name="Assigned" [(ngModel)]="model.Assigned" #Assigned="ngModel"
+                                      [ngClass]="{ 'is-invalid': adduserform.submitted && Assigned.invalid }"
+                                      required />
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                      data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                      <li><a class="dropdown-item" href="#">Action</a></li>
+                                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                      <li>
+                                        <hr class="dropdown-divider">
+                                      </li>
+                                      <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                  </dd>
+                                  <div class="help-block" *ngIf="Assigned.invalid  && Assigned.touched">Assigned to
+                                    is required
+                                  </div>
+                                </dl>
+                              </div>
+                              <div class="col-12">
+                                <div class="row d-flex align-items-center">
+
+                                  <div class="col-md-6">
+                                    <dl class="form-group" [class.has-error]="StartDate.invalid && StartDate.touched "
+                                      [class.has-success]="StartDate.valid">
+                                      <div>
+                                        <label for="exampleInputDescription1" class="form-label text-black">Start
+                                          Date</label>
+                                      </div>
+                                      <div class="dp-hidden position-absolute">
+                                        <div class="input-group">
+                                          <input name="datepicker" class="form-control" ngbDatepicker
+                                            #datepicker="ngbDatepicker" [autoClose]="'outside'"
+                                            (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t"
+                                            outsideDays="hidden" [startDate]="fromDate!" tabindex="-1">
+                                          <ng-template #t let-date let-focused="focused">
+                                            <span class="custom-day" [class.focused]="focused"
+                                              [class.range]="isRange(date)"
+                                              [class.faded]="isHovered(date) || isInside(date)"
+                                              (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+                                              {{ date.day }}
+                                            </span>
+                                          </ng-template>
+                                        </div>
+                                      </div>
+
+                                      <div class="input-group">
+                                        <input #dpFromDate class="form-control" placeholder="yyyy-mm-dd"
+                                          name="dpFromDate" [value]="formatter.format(fromDate)"
+                                          [(ngModel)]="model.StartDate" #StartDate="ngModel" required
+                                          [ngClass]="{ 'is-invalid': adduserform.submitted && StartDate.invalid }"
+                                          (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+                                        <button class="btn btn-outline-secondary calendar font-orange" aria-required="true"
+                                      
+                                          (click)="datepicker.toggle()"
+                                          [ngClass]="{ 'is-invalid': adduserform.submitted && StartDate.invalid }"
+                                          type="button"><i class="mdi mdi-calendar-blank-outline mdi-18px font-orange"></i></button>
+                                      </div>
+                                      <div class="help-block" *ngIf="StartDate.invalid  && StartDate.touched">Start
+                                        Date
+                                        is required
+                                      </div>
+                                    </dl>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <dl class="form-group" [class.has-error]="EndDate.invalid && EndDate.touched "
+                                      [class.has-success]="EndDate.valid">
+                                      <div>
+                                        <label for="exampleInputDescription1" class="form-label text-black">End
+                                          Date</label>
+                                      </div>
+                                      <div class="input-group">
+                                        <input #dpToDate class="form-control" placeholder="yyyy-mm-dd" name="dpToDate"
+                                          [value]="formatter.format(toDate)" required
+                                          [ngClass]="{ 'is-invalid': adduserform.submitted && EndDate.invalid }"
+                                          [(ngModel)]="model.EndDate" #EndDate="ngModel"
+                                          (input)="toDate = validateInput(toDate, dpToDate.value)">
+                                        <button class="btn btn-outline-secondary calendar font-orange" aria-required="true"
+                                          [ngClass]="{ 'is-invalid': adduserform.submitted && EndDate.invalid }"
+                                          (click)="datepicker.toggle()"
+                                          type="button"><i class="mdi mdi-calendar-blank-outline mdi-18px font-orange"></i></button>
+                                      </div>
+                                      <div class="help-block" *ngIf="EndDate.invalid  && EndDate.touched">End Date
+                                        is required
+                                      </div>
+                                    </dl>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12">
+
+                                <dl class="form-group">
+                                  <div>
+                                    <label for="exampleInputDescription1" class="form-label text-black">Remind On
+                                    </label>
+                                  </div>
+                                  <div class="dp-hidden position-absolute">
+                                    <div class="input-group">
+                                      <input name="datepicker" class="form-control" ngbDatepicker
+                                        #datepicker="ngbDatepicker" [autoClose]="'outside'"
+                                        (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t"
+                                        outsideDays="hidden" [startDate]="fromDate!" tabindex="-1">
+                                      <ng-template #t let-date let-focused="focused">
+                                        <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)"
+                                          [class.faded]="isHovered(date) || isInside(date)"
+                                          (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+                                          {{ date.day }}
+                                        </span>
+                                      </ng-template>
+                                    </div>
+                                  </div>
+                                  <div class="input-group">
+                                    <input #dpFromDate class="form-control" placeholder="yyyy-mm-dd" name="StartDate"
+                                      [value]="formatter.format(fromDate)" [(ngModel)]="model.StartDate"
+                                      (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+                                    <button class="btn btn-outline-secondary calendar font-orange" (click)="datepicker.toggle()"
+                                      type="button"><i class="mdi mdi-calendar-blank-outline mdi-18px font-orange"></i></button>
+
+                                  </div>
+                                  <!-- <div class="help-block" *ngIf="RemindOnDate.invalid  && RemindOnDate.touched">
+                Remind On
+                is required
+              </div> -->
+                                </dl>
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <dl class="form-group" [class.has-error]="Details.invalid && Details.touched "
+                                [class.has-success]="Details.valid">
+                                <div>
+                                  <label for="exampleInputDescription1" class="form-label text-black">Details</label>
+                                </div>
+                                <dd>
+                                  <textarea type="text" style="height: 216px;" class="form-control"
+                                    id="exampleInputDescription1" name="description" [(ngModel)]="model.Details"
+                                    #Details="ngModel"
+                                    [ngClass]="{ 'is-invalid': adduserform.submitted && Details.invalid }"
+                                    required></textarea>
+                                  <span class="help-block" *ngIf="Details.invalid  && Details.touched">Details
+                                    is required
+                                  </span>
+                                </dd>
+                              </dl>
+                            </div>
+                            <div class="col-6"></div>
+                            <div class="col-md-6 ">
+                              <div class="col-12">
+                                <div class="row d-flex align-items-center">
+                                  <!-- <div class="col-6"></div> -->
+                                  <div class="col-6 mb-3 ">
+                                    <button class="btn btn-grey text-black w-100">Cancel</button>
+                                  </div>
+                                  <div class="col-6 mb-3">
+                                    <button type="submit" class="btn btn-red text-black w-100"
+                                      [disabled]="!adduserform.valid">Apply</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12" style="border-bottom: 1px solid #ced4da;">
+                              
+                            </div>
+                          </div>
+
+                        </form>
+                      </div>
+
+                      <!-- Angular Generated Form Model : {{adduserform.value | json}} -->
+                      <div class="col-12">
+                        <h6 class="my-3">Task List</h6>
+                        <div class="example-container mat-elevation-z8">
+                          <table mat-table  [dataSource]="dataSource" matSort role="table" class="table table-striped"
+                           style="border: 1px solid;" (matSortChange)="announceSortChange($event)">
+                            <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+
+                            <!-- Position Column -->
+                            <!-- <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header
+              sortActionDescription="Sort by number">Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container> -->
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="#">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id">
+                                # </th>
+                              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Subject">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                sortActionDescription="Sort by Subject">
+                                Subject </th>
+                              <td mat-cell *matCellDef="let element"> {{element.Subject}} </td>
+                            </ng-container>
+
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="Type">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                sortActionDescription="Sort by Type">
+                                Type </th>
+                              <td mat-cell *matCellDef="let element"> {{element.Type}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="Assigned to">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                sortActionDescription="Sort by Assigned">Assigned to </th>
+                              <td mat-cell *matCellDef="let element"> {{element.Assigned}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Due Date">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                sortActionDescription="Sort by StartDate">Due Date </th>
+                              <td mat-cell *matCellDef="let element"> {{element.StartDate}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Status">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                sortActionDescription="Sort by Status">Status </th>
+                              <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                              (click)="selection.toggle(row)">
+                            </tr>
+                          </table>
+                          <mat-paginator class="d-flex justiy-content-start" [pageSizeOptions]="[5, 10, 25, 100]"
+                            aria-label="Select page of users">
+                          </mat-paginator>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                  </mat-tab>
+                  <mat-tab label="Event">Content 3</mat-tab>
+                  <mat-tab label="Make Note">Content 1</mat-tab>
+                  <mat-tab label="Add Attachment">Content 2</mat-tab>
+                  <mat-tab label="Activity Set">Content 3</mat-tab>
+                  <mat-tab label="Custom Field">Content 3</mat-tab>
+                </mat-tab-group>
+              </div>
+              <div class="col mx-1" style="border: 1px solid #ddd;
+              border-radius: 3px;
+              min-height: 96px;
+              margin: 12px 0;
+              padding: 12px;
+              position: relative;">
+                <div class="" >
+                  <div class="col-12 mb-3">
+                    <dl class=" form-group" >
+                      <dd class="input-group">
+                        <input type="text" class="form-control" id="exampleInputName1"
+                          placeholder="Filter by date"
+                         
+                          aria-describedby="nameHelp"  required />
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                          data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
+                          <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                      </dd>
+                     
+                    </dl>
+                  </div>
+                  <div class="col-12 border p-2">
+                    <div class="row d-flex align-items-center p-4">
+                      <div class="col-auto">
+                        <img src="/assets/Images/Phone.png" class="rounded-pill img-fluid p-1"
+                          style="border: 2px solid #3498DB;">
+                      </div>
+                      <div class="col">
+                        <h5>Informed Product Features</h5>
+                        <p class="mb-0" style="color: #80808099; font-weight:500;">You contacted with <span style="color: orange;font-weight:500;">Charles Gomez</span></p>
+                        <small style="font-weight: 600;
+                        color: #a9a9a9;
+                        font-size: small;">13 Nov 2018, 05:49 AM</small>                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 border p-2 mt-4">
+                    <div class="row d-flex align-items-center p-4">
+                      <div class="col-auto">
+                        <img src="/assets/Images/Tick.png" class="rounded-pill img-fluid p-1" width="42px"
+                          style="border: 2px solid #2ECC71;">
+                      </div>
+                      <div class="col">
+                        <h5>Informed Product Features</h5>
+                        <p class="mb-0" style="color: #80808099; font-weight:500;">You contacted with <span style="color: orange;font-weight:500;">Charles Gomez</span></p>
+                        <small style="font-weight: 600;
+                        color: #a9a9a9;
+                        font-size: small;">13 Nov 2018, 05:49 AM</small>                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 border p-2 mt-4">
+                    <div class="row d-flex align-items-center p-4">
+                      <div class="col-auto">
+                        <img src="/assets/Images/brochure.png" class="rounded-pill img-fluid p-1" width="42px"
+                          style="border: 2px solid #E74C3C;">
+                      </div>
+                      <div class="col">
+                        <h5>Informed Product Features</h5>
+                        <p class="mb-0" style="color: #80808099; font-weight:500;">You contacted with <span style="color: orange;font-weight:500;">Charles Gomez</span></p>
+                        <small style="font-weight: 600;
+                        color: #a9a9a9;
+                        font-size: small;">13 Nov 2018, 05:49 AM</small>                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 border p-2 mt-4">
+                    <div class="row d-flex align-items-center p-4">
+                      <div class="col-auto">
+                        <img src="/assets/Images/Phone.png" class="rounded-pill img-fluid p-1"
+                          style="border: 2px solid #3498DB;">
+                      </div>
+                      <div class="col">
+                        <h5>Informed Product Features</h5>
+                        <p class="mb-0" style="color: #80808099; font-weight:500;">You contacted with <span style="color: orange;font-weight:500;">Charles Gomez</span></p>
+                        <small style="font-weight: 600;
+                        color: #a9a9a9;
+                        font-size: small;">13 Nov 2018, 05:49 AM</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">...</div>
+      </div>
+    </div>
+
+  </div>
+</div>
